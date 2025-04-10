@@ -1,5 +1,7 @@
 package ir.javid.satttar.e02
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -14,6 +16,8 @@ class MainActivity : AppCompatActivity() {
 
     var textViewTitle: TextView? = null
     lateinit var buttonAccept: Button
+    lateinit var buttonNextActivity: Button
+    lateinit var buttonShowUrl: Button
     lateinit var sampleStr : String
     var age:Int? = null
 
@@ -29,12 +33,25 @@ class MainActivity : AppCompatActivity() {
 
         textViewTitle = findViewById(R.id.textview_title)
         buttonAccept = findViewById(R.id.button_accept)
+        buttonNextActivity = findViewById(R.id.button_next_activity)
+        buttonShowUrl = findViewById(R.id.button_show_url)
 
         textViewTitle?.text = age.toString()
         sampleStr = textViewTitle?.text.toString()
 
         buttonAccept.setOnClickListener {
             textViewTitle?.text = "خداحافظ دنیا"
+        }
+
+        buttonNextActivity.setOnClickListener {
+            val intent  = Intent(this@MainActivity, ActivityConstraint::class.java)
+            intent.putExtra("message",123)
+            startActivity(intent)
+        }
+
+        buttonShowUrl.setOnClickListener {
+            val intent  = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.time.ir/"))
+            startActivity(intent)
         }
 
     }

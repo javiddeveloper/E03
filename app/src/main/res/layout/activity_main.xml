@@ -76,10 +76,15 @@
         android:text="تایید" />
 
     <Button
-        android:id="@+id/button_cancel"
+        android:id="@+id/button_next_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="انصراف" />
+        android:text="صفحه دوم" />
+    <Button
+        android:id="@+id/button_show_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="show link" />
 
 
 </LinearLayout>
